@@ -9,7 +9,12 @@ if st.button("Scrape Jobs"):
     with st.spinner("Scraping in progress..."):
         df = scrape_jobs(pages)
         st.success("Scraping completed!")
-        st.dataframe(df)
+        st.dataframe(
+            df,
+            column_config={
+                "Job Link": st.columns_config.LinkColumn("Job Link")
+            }
+        )
         df.to_excel('stationf_jobs.xlsx', index=False)
         st.download_button(
             label="Download Excel file",
