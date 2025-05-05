@@ -12,7 +12,7 @@ if st.button("Scrape Jobs"):
         st.dataframe(
             df,
             column_config={
-                "Job Link": st.columns_config.LinkColumn("Job Link")
+                "Job Link": st.column_config.LinkColumn("Job Link")
             }
         )
         df.to_excel('stationf_jobs.xlsx', index=False)
