@@ -1,9 +1,9 @@
 https://jobs.stationf.co/search
 
-Created a website analyzer to extract job search information. It has the ability to look through several pages.
+Built a website analyzer to extract job search information, with the ability to look through several pages and return company and job details.
 I used :
 - 'selenium' webdriver to access Chrome browser and navigate website content 
-- 'beautifulsoup' to parse through HTML and extract company names and job titles
+- 'beautifulsoup' to parse through HTML and extract company names, job title, and a job link
 - 'streamlit' as the front-end webapp to interact and display scrapped data, and offer Excel file download 
 
 Try me here: <br>
