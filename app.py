@@ -1,7 +1,7 @@
 import streamlit as st
 from scraper import scrape_jobs
 
-st.title("Station F Job Scraper")
+st.title("Station F Job Boards Scraper")
 
 pages = st.number_input("Number of pages to scrape", min_value=1, max_value=10, value=2)
 
