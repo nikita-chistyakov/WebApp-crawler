@@ -11,9 +11,12 @@ def scrape_jobs(pages=2):
 
     company_names = []
     job_titles = []
+    job_links = []
+
+    base_url = "https://jobs.stationf.co"
 
     for page in range(1, pages + 1):
-        url = f"https://jobs.stationf.co/search?page={page}"
+        url = f"{base_url}/search?page={page}"
         driver.get(url)
         time.sleep(5)
 
@@ -23,11 +26,19 @@ def scrape_jobs(pages=2):
             title_elem = listing.select_one("h4.job-title")
             job_title = title_elem.get_text(strip=True) if title_elem else 'N/A'
 
+            relative_link = listing.get('href')
+            full_link = base_url + relative_link if relative_link else 'N/A'
+
             company_elem = listing.select_one("li.job-company")
             company_name = company_elem.get_text(strip=True) if company_elem else 'N/A'
 
             job_titles.append(job_title)
             company_names.append(company_name)
+            job_links.append(full_link)
 
     driver.quit()
-    return pd.DataFrame({'Company': company_names, 'Job Title': job_titles})
+    return pd.DataFrame({
+        'Company': company_names, 
+        'Job Title': job_titles,
+        'Job Link': job_links
+    })
