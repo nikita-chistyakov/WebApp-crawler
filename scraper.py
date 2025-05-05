@@ -38,7 +38,7 @@ def scrape_jobs(pages=2):
 
     driver.quit()
     return pd.DataFrame({
-        'Company.v2': company_names, 
+        'Company': company_names, 
         'Job Title': job_titles,
         'Job Link': job_links
     })
