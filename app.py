@@ -2,6 +2,7 @@ import streamlit as st
 from scraper import scrape_jobs
 
 st.title("Station F Job Board Scraper")
+st.markdown("Easily extract job postings from [Station F](https://jobs.stationf.co/search) and download them as an Excel file.")
 
 pages = st.number_input("Number of pages to scrape", min_value=1, max_value=10, value=2)
 
